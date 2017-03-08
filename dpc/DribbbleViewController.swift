@@ -242,22 +242,25 @@ class DribbbleViewController: UIViewController {
             
         else if sender.state == UIGestureRecognizerState.ended {
             
-            animator.removeBehavior(attachmentBehavior)
-            
-            snapBehavior = UISnapBehavior(item: myView!, snapTo: view.center)
-            animator.addBehavior(snapBehavior)
-            
             let translation = sender.translation(in: view)
             if translation.y > 100 {
                 animator.removeAllBehaviors()
-                
-                let gravity = UIGravityBehavior(items: [dialogView])
-                gravity.gravityDirection = CGVector(dx: 0, dy: 10)
-                animator.addBehavior(gravity)
-                
+//                
+//                let gravity = UIGravityBehavior(items: [dialogView])
+//                gravity.gravityDirection = CGVector(dx: 0, dy: 10)
+//                animator.addBehavior(gravity)
+                dialogView.animation = "fall"
+                dialogView.animate()
                 delay(delay: 0.3) {
                     self.refreshView()
                 }
+            } else {
+                SpringAnimation.spring(duration: 0.5 , animations: {self.animator.removeBehavior(self.attachmentBehavior)
+                    
+                    self.snapBehavior = UISnapBehavior(item: myView!, snapTo: self.view.center)
+                    self.animator.addBehavior(self.snapBehavior)
+                })
+                
             }
         }
     }
