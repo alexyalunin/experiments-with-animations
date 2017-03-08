@@ -15,7 +15,18 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var authorOfPostLabel: UILabel!
     @IBOutlet weak var backButton: DesignableButton!
     @IBOutlet weak var textOfPostTextView: DesignableTextView!
-   
+    
+    
+    // needs to be refactored
+    @IBOutlet weak var shareView: DesignableView!
+    @IBOutlet weak var muskButton: UIButton!
+    @IBOutlet weak var shareLabelsView: UIView!
+    @IBOutlet weak var emailShareButton: DesignableButton!
+    @IBOutlet weak var twitterShareButton: DesignableButton!
+    @IBOutlet weak var facebookShareButton: DesignableButton!
+    //
+    
+    
     var data = Array<Dictionary<String,String>>()
     var number = 0
     
@@ -43,6 +54,9 @@ class DetailViewController: UIViewController {
         
         backButton.alpha = 0
         
+        muskButton.isHidden = true
+        shareView.isHidden = true
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,5 +68,58 @@ class DetailViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
+    
+    // MARK: - buttons
+    
+    @IBAction func shareButtonDidTouch(_ sender: Any) {
+        shareLabelsView.alpha = 0
+        shareView.isHidden = false
+        showMask()
+        
+        shareView.animation = "slideUp"
+        shareView.delay = 0.05
+        shareView.duration = 0.5
+        emailShareButton.animation = "slideUp"
+        emailShareButton.delay = 0.10
+        emailShareButton.duration = 0.5
+        twitterShareButton.animation = "slideUp"
+        twitterShareButton.delay = 0.15
+        twitterShareButton.duration = 0.5
+        facebookShareButton.animation = "slideUp"
+        facebookShareButton.delay = 0.20
+        facebookShareButton.duration = 0.5
+        
+        SpringAnimation.springWithDelay(duration: 0.5, delay: 0.25, animations: {
+            self.shareLabelsView.alpha = 1})
+        
+//        SpringAnimation.spring(duration: 0.5) {
+//            self.dialogView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+//        }
+        
+        shareView.animate()
+        emailShareButton.animate()
+        twitterShareButton.animate()
+        facebookShareButton.animate()
+    }
+
+    @IBAction func muskButtonDidTouch(_ sender: Any) {
+        SpringAnimation.spring(duration: 0.5, animations: {
+            self.muskButton.alpha = 0
+            self.shareView.alpha = 0
+        })
+        shareView.isHidden = true
+    }
+    
+    // MARK: - secondary functions
+    
+    func showMask() {
+        self.muskButton.isHidden = false
+        self.muskButton.alpha = 0
+        SpringAnimation.spring(duration: 0.5) {
+            self.muskButton.alpha = 1
+        }
+    }
+  
     
 }
