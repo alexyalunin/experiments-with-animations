@@ -21,24 +21,23 @@ class DribbbleViewController: UIViewController {
     @IBOutlet weak var dialogView: DesignableView!
     @IBOutlet weak var titleOfPostLabel: UILabel!
     @IBOutlet weak var authorOfPostLabel: UILabel!
-    @IBOutlet weak var authorOfPostImageView: UIImageView!
+    @IBOutlet weak var authorOfPostImageView: DesignableImageView!
     @IBOutlet weak var mainImageButton: UIButton!
     @IBOutlet weak var likeButton: DesignableButton!
     @IBOutlet weak var shareButton: DesignableButton!
     
     // share view
     @IBOutlet weak var shareView: DesignableView!
-    @IBOutlet weak var facebookShareView: SpringView!
-    @IBOutlet weak var twitterShareView: SpringView!
-    @IBOutlet weak var emailShareView: SpringView!
-    @IBOutlet weak var shareLabel: SpringLabel!
+    @IBOutlet weak var emailShareButton: DesignableButton!
+    @IBOutlet weak var twitterShareButton: DesignableButton!
+    @IBOutlet weak var facebookShareButton: DesignableButton!
+    @IBOutlet weak var shareLabelsView: UIView!
     
     // menu view
     @IBOutlet weak var menuButton: DesignableButton!
     @IBOutlet weak var menuView: SpringView!
 
     // MARK: - constraints
-    
     @IBOutlet weak var dialogViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var dialogViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var dialogViewCenterVerticalyConstraint: NSLayoutConstraint!
@@ -50,6 +49,11 @@ class DribbbleViewController: UIViewController {
         super.viewDidLoad()
         
         animator = UIDynamicAnimator(referenceView: view)
+        
+        dialogView.alpha = 0
+        
+        shareButton.imageView?.contentMode = .scaleAspectFit
+        likeButton.imageView?.contentMode = .scaleAspectFit
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,16 +63,51 @@ class DribbbleViewController: UIViewController {
         shareView.isHidden = true
     }
     
-    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if segue.identifier == "homeToDetail" {
-            _ = segue.destination as! DetailViewController
-            
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(true)
+        let scale = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        let translate = CGAffineTransform(translationX: 0, y: -200)
+        dialogView.transform = scale.concatenating(translate)
+        
+        SpringAnimation.spring(duration: 0.5) {
+            let scale = CGAffineTransform(scaleX: 1, y: 1)
+            let translate = CGAffineTransform(translationX: 0, y: 0)
+            self.dialogView.transform = scale.concatenating(translate)
         }
+        
+        authorOfPostImageView.image = UIImage(named: data[number]["avatar"]!)
+        mainImageButton.setImage(UIImage(named: data[number]["image"]!), for: UIControlState.normal)
+        backgroundImageView.image = UIImage(named: data[number]["image"]!)
+        authorOfPostLabel.text = data[number]["author"]
+        titleOfPostLabel.text = data[number]["title"]
+        
+        dialogView.alpha = 1
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "homeToDetail" {
+            let controller = segue.destination as! DetailViewController
+            controller.data = data
+            controller.number = number
+        }
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
     
     // MARK: - actions
     
     @IBAction func mainImageButtonDidTouch(_ sender: Any) {
+        
+        SpringAnimation.spring(duration: 0, animations:
+            {
+                self.menuButton.alpha = 0
+                self.likeButton.alpha = 0
+                self.shareButton.alpha = 0
+                self.headerView.alpha = 0
+        })
         SpringAnimation.springWithCompletion(duration: 0.5, animations:
             {
                 let globalWidth = self.globalViewOfVC.frame.width
@@ -82,10 +121,6 @@ class DribbbleViewController: UIViewController {
                 
                 self.dialogView.layer.cornerRadius = 0
                 self.mainImageButton.frame = CGRect(x: 0, y: 0, width: globalWidth, height: imageHeight)
-                self.menuButton.alpha = 0
-                self.likeButton.alpha = 0
-                self.shareButton.alpha = 0
-                self.headerView.alpha = 0
         }, completion:
             {
                 finished in
@@ -120,34 +155,34 @@ class DribbbleViewController: UIViewController {
     }
     
     @IBAction func shareButtonDidTouch(_ sender: Any) {
-        shareLabel.alpha = 0
+        shareLabelsView.alpha = 0
         shareView.isHidden = false
         showMask()
         
         shareView.animation = "slideUp"
         shareView.delay = 0.05
         shareView.duration = 0.5
-        emailShareView.animation = "slideUp"
-        emailShareView.delay = 0.10
-        emailShareView.duration = 0.5
-        twitterShareView.animation = "slideUp"
-        twitterShareView.delay = 0.15
-        twitterShareView.duration = 0.5
-        facebookShareView.animation = "slideUp"
-        facebookShareView.delay = 0.20
-        facebookShareView.duration = 0.5
+        emailShareButton.animation = "slideUp"
+        emailShareButton.delay = 0.10
+        emailShareButton.duration = 0.5
+        twitterShareButton.animation = "slideUp"
+        twitterShareButton.delay = 0.15
+        twitterShareButton.duration = 0.5
+        facebookShareButton.animation = "slideUp"
+        facebookShareButton.delay = 0.20
+        facebookShareButton.duration = 0.5
         
         SpringAnimation.springWithDelay(duration: 0.5, delay: 0.25, animations: {
-        self.shareLabel.alpha = 1})
+        self.shareLabelsView.alpha = 1})
         
         SpringAnimation.spring(duration: 0.5) {
             self.dialogView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         }
         
         shareView.animate()
-        emailShareView.animate()
-        twitterShareView.animate()
-        facebookShareView.animate()
+        emailShareButton.animate()
+        twitterShareButton.animate()
+        facebookShareButton.animate()
     }
     
     // MARK: - secondary functions
@@ -227,7 +262,6 @@ class DribbbleViewController: UIViewController {
         }
     }
 
-
     var number = 0
     
     func refreshView() {
@@ -248,15 +282,5 @@ class DribbbleViewController: UIViewController {
     // MARK: - data
     
     var data = getData()
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+  
 }
