@@ -160,9 +160,9 @@
 			isa = PBXGroup;
 			children = (
 				11DE8C161E60C4F300EC3AEA /* Main.storyboard */,
+				1147DD501E6D9196002ACF63 /* DribbbleViewController.swift */,
 				1138B1681E6EB947005CF096 /* DetailViewController.swift */,
 				1138B16A1E700ED2005CF096 /* data.swift */,
-				1147DD501E6D9196002ACF63 /* DribbbleViewController.swift */,
 				11BF5F031E62097200ACA224 /* Supporting files */,
 			);
 			path = dpc;

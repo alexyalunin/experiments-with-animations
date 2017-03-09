@@ -15,6 +15,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var authorOfPostLabel: UILabel!
     @IBOutlet weak var backButton: DesignableButton!
     @IBOutlet weak var textOfPostTextView: DesignableTextView!
+    //buttons
+    @IBOutlet weak var likeButton: DesignableButton!
+    @IBOutlet weak var shareButton: DesignableButton!
     
     
     // needs to be refactored
@@ -71,6 +74,18 @@ class DetailViewController: UIViewController {
     
     
     // MARK: - buttons
+    
+    var likeButtonTouched = false
+    @IBAction func likeButtonDidTouch(_ sender: Any) {
+        self.likeButton.setImage(#imageLiteral(resourceName: "like-fill"), for: .highlighted)
+        if likeButtonTouched == false{
+            likeButton.setImage(#imageLiteral(resourceName: "like-fill"), for: .normal)
+            likeButtonTouched = true
+        } else {
+            likeButton.setImage(#imageLiteral(resourceName: "like"), for: .normal)
+            self.likeButtonTouched = false
+        }
+    }
     
     @IBAction func shareButtonDidTouch(_ sender: Any) {
         shareLabelsView.alpha = 0
