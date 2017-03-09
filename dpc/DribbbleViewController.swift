@@ -25,6 +25,8 @@ class DribbbleViewController: UIViewController {
     @IBOutlet weak var mainImageButton: UIButton!
     @IBOutlet weak var likeButton: DesignableButton!
     @IBOutlet weak var shareButton: DesignableButton!
+    @IBOutlet weak var numberOfLikesLabel: UILabel!
+    @IBOutlet weak var viewWithNumberOfLikes: DesignableView!
     
     // share view
     @IBOutlet weak var shareView: DesignableView!
@@ -40,8 +42,7 @@ class DribbbleViewController: UIViewController {
     // MARK: - constraints
     @IBOutlet weak var dialogViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var dialogViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var dialogViewCenterVerticalyConstraint: NSLayoutConstraint!
-    @IBOutlet weak var dialogViewCenterHorizontalyConstraint: NSLayoutConstraint!
+    
     
     // MARK: - main functions
     
@@ -81,6 +82,7 @@ class DribbbleViewController: UIViewController {
         backgroundImageView.image = UIImage(named: data[number]["image"]!)
         authorOfPostLabel.text = data[number]["author"]
         titleOfPostLabel.text = data[number]["title"]
+        numberOfLikesLabel.text = data[number]["likes"]
         
         dialogView.alpha = 1
     }
@@ -184,6 +186,30 @@ class DribbbleViewController: UIViewController {
         twitterShareButton.animate()
         facebookShareButton.animate()
     }
+    
+    var likeButtonTouched = false
+    
+    @IBAction func likeButtonDidTouch(_ sender: Any) {
+        
+        if likeButtonTouched == false{
+            self.likeButtonTouched = true
+            self.likeButton.setImage(#imageLiteral(resourceName: "like-fill"), for: .normal)
+            SpringAnimation.springWithCompletion(duration: 0.5, animations: {
+                self.numberOfLikesLabel.text = String(Int(self.numberOfLikesLabel.text!)! + 1)
+                self.viewWithNumberOfLikes.animation = "pop"
+                self.viewWithNumberOfLikes.animate()
+            }, completion:
+                {
+                    finished in
+                    // TODO: data
+            })
+        } else {
+            self.likeButton.setImage(#imageLiteral(resourceName: "like"), for: .normal)
+            self.numberOfLikesLabel.text = String(Int(self.numberOfLikesLabel.text!)! - 1)
+            self.likeButtonTouched = false
+        }
+    }
+    
     
     // MARK: - secondary functions
     

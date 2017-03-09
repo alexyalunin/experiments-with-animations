@@ -40,32 +40,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OT8-R6-Fdg" customClass="DesignableButton" customModule="dpc" customModuleProvider="target">
-                                            <rect key="frame" x="305" y="25" width="50" height="50"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="50" id="27g-Qg-bFX"/>
-                                                <constraint firstAttribute="height" constant="50" id="xV0-rQ-eBf"/>
-                                            </constraints>
-                                            <state key="normal" image="button-user"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                    <color key="value" white="1" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                    <real key="value" value="0.0"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                    <real key="value" value="0.0"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                            <connections>
-                                                <action selector="menuButtonDidTouch:" destination="jVM-Ji-rg1" eventType="touchUpInside" id="xOH-KQ-7pR"/>
-                                            </connections>
-                                        </button>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehO-eS-fiS" customClass="DesignableView" customModule="dpc" customModuleProvider="target">
                                             <rect key="frame" x="27" y="183" width="320" height="300"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ih7-3P-Rkl" customClass="DesignableButton" customModule="dpc" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ih7-3P-Rkl" customClass="DesignableButton" customModule="dpc" customModuleProvider="target">
                                                     <rect key="frame" x="15" y="258" width="141" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="141" id="TtK-8G-Pbv"/>
@@ -74,8 +52,13 @@
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                                                     <state key="normal" title="Like" image="like"/>
+                                                    <state key="selected" image="like-fill"/>
+                                                    <state key="highlighted" image="like-fill"/>
+                                                    <connections>
+                                                        <action selector="likeButtonDidTouch:" destination="jVM-Ji-rg1" eventType="touchUpInside" id="hbG-w3-pcR"/>
+                                                    </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARv-9h-2oC" customClass="DesignableButton" customModule="dpc" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARv-9h-2oC" customClass="DesignableButton" customModule="dpc" customModuleProvider="target">
                                                     <rect key="frame" x="164" y="258" width="141" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="141" id="OwE-pf-EKg"/>
@@ -217,6 +200,28 @@
                                                 <outletCollection property="gestureRecognizers" destination="5pr-og-Bgq" appends="YES" id="E6r-wX-xOC"/>
                                             </connections>
                                         </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OT8-R6-Fdg" customClass="DesignableButton" customModule="dpc" customModuleProvider="target">
+                                            <rect key="frame" x="305" y="25" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="27g-Qg-bFX"/>
+                                                <constraint firstAttribute="height" constant="50" id="xV0-rQ-eBf"/>
+                                            </constraints>
+                                            <state key="normal" image="button-user"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" white="1" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="0.0"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="0.0"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="menuButtonDidTouch:" destination="jVM-Ji-rg1" eventType="touchUpInside" id="xOH-KQ-7pR"/>
+                                            </connections>
+                                        </button>
                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHS-9W-LEA">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
@@ -227,33 +232,32 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VmL-qj-bZE" customClass="DesignableView" customModule="dpc" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="402" width="375" height="275"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="48K-rb-Jqb">
-                                                    <rect key="frame" x="29.5" y="10" width="333.5" height="210"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="48K-rb-Jqb">
+                                                    <rect key="frame" x="21" y="32.5" width="333.5" height="210"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wk9-So-vqm" customClass="SpringLabel" customModule="dpc" customModuleProvider="target">
-                                                            <rect key="frame" x="121.5" y="15" width="75" height="39"/>
+                                                            <rect key="frame" x="129" y="0.0" width="75" height="39"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="28"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Twitter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKk-7E-51e">
-                                                            <rect key="frame" x="129" y="165" width="58.5" height="25"/>
+                                                            <rect key="frame" x="137" y="149" width="58.5" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="18"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Facebook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NH2-HR-M92">
-                                                            <rect key="frame" x="232.5" y="165" width="81" height="25"/>
+                                                            <rect key="frame" x="240" y="149" width="81" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="18"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Yi-ig-Fbk">
-                                                            <rect key="frame" x="20" y="165" width="46" height="25"/>
+                                                            <rect key="frame" x="29" y="149" width="46" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="18"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -261,6 +265,10 @@
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="210" id="1SB-vS-6ue"/>
+                                                        <constraint firstAttribute="width" constant="333.5" id="Uwg-Ws-Qrh"/>
+                                                    </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1EH-fd-0KJ" customClass="DesignableButton" customModule="dpc" customModuleProvider="target">
                                                     <rect key="frame" x="27" y="92.5" width="90" height="90"/>
@@ -290,11 +298,13 @@
                                             <color key="backgroundColor" red="0.23921568627450979" green="0.25882352941176467" blue="0.30588235294117649" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="dgK-Wf-S1r" firstAttribute="centerX" secondItem="VmL-qj-bZE" secondAttribute="centerX" id="40L-by-eXF"/>
+                                                <constraint firstItem="48K-rb-Jqb" firstAttribute="centerX" secondItem="VmL-qj-bZE" secondAttribute="centerX" id="45q-S5-Qc0"/>
                                                 <constraint firstItem="dBb-Nw-0xk" firstAttribute="centerY" secondItem="dgK-Wf-S1r" secondAttribute="centerY" id="62O-aQ-zxQ"/>
                                                 <constraint firstItem="dgK-Wf-S1r" firstAttribute="leading" secondItem="1EH-fd-0KJ" secondAttribute="trailing" constant="25" id="6Pl-f6-QCU"/>
                                                 <constraint firstItem="dgK-Wf-S1r" firstAttribute="centerY" secondItem="VmL-qj-bZE" secondAttribute="centerY" id="7zm-QU-6Ds"/>
                                                 <constraint firstItem="1EH-fd-0KJ" firstAttribute="centerY" secondItem="dgK-Wf-S1r" secondAttribute="centerY" id="Gmb-1g-HLV"/>
                                                 <constraint firstAttribute="height" constant="275" id="VyV-W7-gXY"/>
+                                                <constraint firstItem="48K-rb-Jqb" firstAttribute="centerY" secondItem="VmL-qj-bZE" secondAttribute="centerY" id="baG-rZ-sLv"/>
                                                 <constraint firstItem="dBb-Nw-0xk" firstAttribute="leading" secondItem="dgK-Wf-S1r" secondAttribute="trailing" constant="25" id="dpF-wK-fNz"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
@@ -339,7 +349,7 @@
                                                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="18"/>
                                                     <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                    <state key="normal" title="Share" image="popover-shares"/>
+                                                    <state key="normal" title="Shares" image="popover-shares"/>
                                                     <state key="highlighted">
                                                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -419,8 +429,6 @@
                         <outlet property="authorOfPostLabel" destination="Z9c-P9-7ig" id="TQa-aC-nkZ"/>
                         <outlet property="backgroundImageView" destination="lay-YF-xHK" id="nal-kE-sWz"/>
                         <outlet property="dialogView" destination="ehO-eS-fiS" id="cfL-aZ-Bhy"/>
-                        <outlet property="dialogViewCenterHorizontalyConstraint" destination="6JF-Gd-V8Z" id="oiX-9E-PpR"/>
-                        <outlet property="dialogViewCenterVerticalyConstraint" destination="4o8-9p-v0f" id="CoW-yZ-6DB"/>
                         <outlet property="dialogViewHeightConstraint" destination="4EG-yG-Yte" id="Vwq-F8-IOa"/>
                         <outlet property="dialogViewWidthConstraint" destination="Djk-9W-plU" id="hln-ng-qKC"/>
                         <outlet property="emailShareButton" destination="1EH-fd-0KJ" id="SFl-8q-NxE"/>
@@ -432,12 +440,14 @@
                         <outlet property="menuButton" destination="OT8-R6-Fdg" id="lhb-Xu-fmB"/>
                         <outlet property="menuView" destination="Olj-Ao-80u" id="A5G-sv-ihN"/>
                         <outlet property="muskButton" destination="WHS-9W-LEA" id="oRB-cl-bH8"/>
+                        <outlet property="numberOfLikesLabel" destination="Q3r-dN-pDG" id="Jxd-52-CYf"/>
                         <outlet property="panRecognizer" destination="5pr-og-Bgq" id="tWU-5o-Zth"/>
                         <outlet property="shareButton" destination="ARv-9h-2oC" id="cfD-hD-k4t"/>
                         <outlet property="shareLabelsView" destination="48K-rb-Jqb" id="Me2-uZ-doo"/>
                         <outlet property="shareView" destination="VmL-qj-bZE" id="OU1-Gc-THn"/>
                         <outlet property="titleOfPostLabel" destination="yBY-0I-YSn" id="StL-lZ-J4M"/>
                         <outlet property="twitterShareButton" destination="dgK-Wf-S1r" id="svu-Ck-4VK"/>
+                        <outlet property="viewWithNumberOfLikes" destination="UUR-uu-d4b" id="Tqn-M2-qPR"/>
                         <segue destination="pSC-bE-x47" kind="modal" identifier="homeToDetail" animates="NO" modalPresentationStyle="currentContext" modalTransitionStyle="crossDissolve" id="39Y-HR-5bO"/>
                     </connections>
                 </viewController>
@@ -601,10 +611,12 @@
                                         <real key="value" value="0.20000000000000001"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="likeButtonDidTouch:" destination="pSC-bE-x47" eventType="touchUpInside" id="kC5-1g-Kbh"/>
+                                </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rmv-yg-tL6">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rmv-yg-tL6">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <action selector="muskButtonDidTouch:" destination="pSC-bE-x47" eventType="touchUpInside" id="fca-LD-Psh"/>
@@ -613,33 +625,32 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EmD-Uu-MQr" customClass="DesignableView" customModule="dpc" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="402" width="375" height="275"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eEG-zf-h99">
-                                        <rect key="frame" x="29.5" y="10" width="333.5" height="210"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eEG-zf-h99">
+                                        <rect key="frame" x="21" y="32.5" width="333.5" height="210"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83y-N6-uj4" customClass="SpringLabel" customModule="dpc" customModuleProvider="target">
-                                                <rect key="frame" x="121.5" y="15" width="75" height="39"/>
+                                                <rect key="frame" x="129" y="0.0" width="75" height="39"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="28"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Twitter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50f-cJ-J28">
-                                                <rect key="frame" x="129" y="165" width="58.5" height="25"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Facebook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DiS-LH-Db3">
+                                                <rect key="frame" x="240" y="149" width="81" height="25"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="18"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Facebook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DiS-LH-Db3">
-                                                <rect key="frame" x="232.5" y="165" width="81" height="25"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Twitter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50f-cJ-J28">
+                                                <rect key="frame" x="137" y="149" width="58.5" height="25"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="18"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y6t-kj-E8P">
-                                                <rect key="frame" x="20" y="165" width="46" height="25"/>
+                                                <rect key="frame" x="29" y="149" width="46" height="25"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="18"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -647,6 +658,10 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="333.5" id="tCY-WG-ala"/>
+                                            <constraint firstAttribute="height" constant="210" id="x6P-E3-40v"/>
+                                        </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QTz-j4-aLY" customClass="DesignableButton" customModule="dpc" customModuleProvider="target">
                                         <rect key="frame" x="27" y="92.5" width="90" height="90"/>
@@ -678,7 +693,9 @@
                                     <constraint firstItem="pCQ-MB-L5s" firstAttribute="centerY" secondItem="EmD-Uu-MQr" secondAttribute="centerY" id="2LS-J1-O98"/>
                                     <constraint firstAttribute="height" constant="275" id="AuK-qH-B1f"/>
                                     <constraint firstItem="pCQ-MB-L5s" firstAttribute="leading" secondItem="QTz-j4-aLY" secondAttribute="trailing" constant="25" id="JOK-aK-WV5"/>
+                                    <constraint firstItem="eEG-zf-h99" firstAttribute="centerY" secondItem="EmD-Uu-MQr" secondAttribute="centerY" id="Mf8-Af-cnj"/>
                                     <constraint firstItem="QTz-j4-aLY" firstAttribute="centerY" secondItem="pCQ-MB-L5s" secondAttribute="centerY" id="Ord-y9-ojx"/>
+                                    <constraint firstItem="eEG-zf-h99" firstAttribute="centerX" secondItem="EmD-Uu-MQr" secondAttribute="centerX" id="W2F-9c-vL6"/>
                                     <constraint firstItem="pCQ-MB-L5s" firstAttribute="centerX" secondItem="EmD-Uu-MQr" secondAttribute="centerX" id="dRu-pD-dbF"/>
                                     <constraint firstItem="0PM-8m-9tz" firstAttribute="centerY" secondItem="pCQ-MB-L5s" secondAttribute="centerY" id="ebP-Gs-afE"/>
                                     <constraint firstItem="0PM-8m-9tz" firstAttribute="leading" secondItem="pCQ-MB-L5s" secondAttribute="trailing" constant="25" id="mzB-6x-X3p"/>
@@ -701,10 +718,14 @@
                         <constraints>
                             <constraint firstItem="kGT-ji-SzQ" firstAttribute="leading" secondItem="HBr-WS-CYc" secondAttribute="trailing" constant="15" id="15v-i7-A70"/>
                             <constraint firstItem="TnL-K2-2pZ" firstAttribute="top" secondItem="HBr-WS-CYc" secondAttribute="bottom" constant="20" id="4UZ-Ox-Qef"/>
+                            <constraint firstItem="TnL-K2-2pZ" firstAttribute="top" secondItem="Rmv-yg-tL6" secondAttribute="bottom" id="7ym-ad-pD0"/>
                             <constraint firstItem="TnL-K2-2pZ" firstAttribute="top" secondItem="kGT-ji-SzQ" secondAttribute="bottom" constant="20" id="8Ss-Kw-bJe"/>
                             <constraint firstItem="XzP-7h-Ohi" firstAttribute="width" secondItem="hjR-Vc-Ae9" secondAttribute="width" id="9ml-9g-b37"/>
+                            <constraint firstItem="Rmv-yg-tL6" firstAttribute="leading" secondItem="hjR-Vc-Ae9" secondAttribute="leading" id="FEq-ll-R8B"/>
+                            <constraint firstAttribute="trailing" secondItem="Rmv-yg-tL6" secondAttribute="trailing" id="HeR-Fy-aQB"/>
                             <constraint firstItem="XzP-7h-Ohi" firstAttribute="height" secondItem="hjR-Vc-Ae9" secondAttribute="height" id="Slj-9n-Wag"/>
                             <constraint firstItem="TnL-K2-2pZ" firstAttribute="top" secondItem="EmD-Uu-MQr" secondAttribute="bottom" constant="-10" id="chK-tk-R7a"/>
+                            <constraint firstItem="Rmv-yg-tL6" firstAttribute="top" secondItem="hQx-qB-34Q" secondAttribute="bottom" id="eKb-qi-WJs"/>
                             <constraint firstItem="EmD-Uu-MQr" firstAttribute="leading" secondItem="hjR-Vc-Ae9" secondAttribute="leadingMargin" constant="-16" id="ibO-kv-a3b"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EmD-Uu-MQr" secondAttribute="trailing" constant="-16" id="ibd-3M-g6c"/>
                             <constraint firstItem="kGT-ji-SzQ" firstAttribute="trailing" secondItem="hjR-Vc-Ae9" secondAttribute="trailingMargin" id="kgY-NV-cdm"/>
@@ -722,8 +743,10 @@
                         <outlet property="backButton" destination="a0x-T7-3MR" id="UI0-zj-7uH"/>
                         <outlet property="emailShareButton" destination="QTz-j4-aLY" id="Ehe-fj-2uW"/>
                         <outlet property="facebookShareButton" destination="0PM-8m-9tz" id="Od2-jS-jHd"/>
+                        <outlet property="likeButton" destination="HBr-WS-CYc" id="x6l-om-x2Y"/>
                         <outlet property="mainImageView" destination="scj-1P-qmy" id="I8X-6w-Evr"/>
                         <outlet property="muskButton" destination="Rmv-yg-tL6" id="mYO-ul-s1U"/>
+                        <outlet property="shareButton" destination="kGT-ji-SzQ" id="2fJ-Md-Pfi"/>
                         <outlet property="shareLabelsView" destination="eEG-zf-h99" id="lMf-AM-CbK"/>
                         <outlet property="shareView" destination="EmD-Uu-MQr" id="Wld-4O-C0j"/>
                         <outlet property="textOfPostTextView" destination="CDN-CS-D9s" id="9OX-of-ixo"/>
@@ -743,6 +766,7 @@
         <image name="heart" width="26" height="23"/>
         <image name="image" width="800" height="600"/>
         <image name="like" width="48" height="43"/>
+        <image name="like-fill" width="48" height="43"/>
         <image name="popover-bg" width="170" height="141"/>
         <image name="popover-favorites" width="22" height="22"/>
         <image name="popover-profile" width="22" height="22"/>
